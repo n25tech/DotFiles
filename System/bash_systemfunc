@@ -187,7 +187,7 @@ function syncthing-install() {
 	#pre-requiste: run apt install syncthing or dnf install syncthing
 	sudo groupadd sync-data
 	sudo usermod -aG sync-data $USER
-	sudo useradd --system --shell /sbin/nologin syncthing
+	sudo useradd --system -m --shell /sbin/nologin syncthing
 	sudo usermod -aG sync-data syncthing
 	sudo chown -R $USER:sync-data ~/Sync
 	sudo chmod -R 2770 ~/Sync
