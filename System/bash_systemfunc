@@ -181,3 +181,20 @@ function android_paths() {
 function octave() {
 	flatpak run org.octave.Octave
 }
+
+#syncthing
+function syncthing-install() {
+	#pre-requiste: run apt install syncthing or dnf install syncthing
+	sudo groupadd sync-data
+	sudo usermod -aG sync-data $USER
+	sudo useradd --system --shell /sbin/nologin syncthing
+	sudo usermod -aG sync-data syncthing
+	sudo chown -R $USER:sync-data ~/Sync
+	sudo chmod -R 2770 ~/Sync
+	sudo systemctl enable syncthing@syncthing
+	sudo systemctl start syncthing@syncthing
+	sudo systemctl status syncthing@syncthing
+	sudo -u syncthing syncthing cli config options natenabled set false
+	sudo -u syncthing syncthing cli config options global-ann-enabled set false
+	sudo -u syncthing syncthing cli config options relays-enabled set false
+}
