@@ -2,7 +2,13 @@
 
 alias vim='nvim'
 
-export PATH=$PATH:/home/$USER/.bin
+export PATH=$PATH:/home/$USER/.bin:/home/$USER/.local/bin
+
+FNM_PATH="/home/navin/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+	export PATH="$FNM_PATH:$PATH"
+	eval "$(fnm env --shell bash)"
+fi
 
 function p() {
         echo $PATH
