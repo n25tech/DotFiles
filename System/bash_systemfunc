@@ -2,7 +2,7 @@
 
 alias vim='nvim'
 
-export PATH=$PATH:/home/$USER/.bin:/home/$USER/.local/bin
+export PATH=$PATH:/home/$USER/.bin:/home/$USER/.local/bin:/home/$USER/.emacs.d/bin/
 
 FNM_PATH="/home/navin/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
